@@ -6,8 +6,8 @@ def fast_left_rotation(array,rotations):
     new_array = [0]*len(array)
     shift = rotations%len(array)
     for j in range(len(array)):
-        if j == len(array)-shift:
-            new_array[j] = array[shift-1]
+        if (j+shift) > (len(array)-1):
+            new_array[j] = array[(j+shift)-len(array)]
         else:
             new_array[j] = array[j+shift]
     return new_array
