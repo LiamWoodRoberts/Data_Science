@@ -1,5 +1,5 @@
-#Another hackerrank Challenge, creating a simple Bubble sort
-#Algorithm and printing the number of steps
+#Another Hackerrank Challenge, creating a simple Bubble sort Algorithm and printing the number of steps
+#As well as the first and last element of the array
 
 def BubbleSort(a):
     count = 0
@@ -11,7 +11,7 @@ def BubbleSort(a):
                 count +=1
     print('Array is sorted in',count, 'swaps.')
     print('First Element:',a[0])
-    print('Last Element:',a[len(a)-1])
+    print('Last Element:',a[n-1])
     return
 
 array = [6,4,1]
