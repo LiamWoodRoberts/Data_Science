@@ -1,7 +1,6 @@
-'''Basic fraud detecter from a hackerrank problem, if spending goes above the
-median of a specified previous numbers of days sends a notification to user
-function returns number of notifications a user would recieve given spending
-each day and number of days tracked'''
+'''Basic fraud detecter from a hackerrank problem. Notifies user if spending goes above twice the 
+median of a specified previous numbers of days. Function takes in daily spending and number of days tracked
+and returns the number of notifications a user would recieve.
 
 from bisect import insort
 
