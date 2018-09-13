@@ -1,6 +1,6 @@
 '''Basic fraud detecter from a hackerrank problem. Notifies user if spending goes above twice the 
 median of a specified previous numbers of days. Function takes in daily spending and number of days tracked
-and returns the number of notifications a user would recieve.
+and returns the number of notifications a user would recieve.'''
 
 from bisect import insort
 
