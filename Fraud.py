@@ -7,25 +7,25 @@ from bisect import insort
 def fraud(spend,d):
     notifications = 0
     for i in range(len(spend)-d):
+        #Create sorted transaction history on first loop through
         if i == 0:
-            trail = spend[i:i+d]
-            drop = trail.copy()
-            trail.sort()
-        else:
-            trail.remove(drop[0])
-            insort(trail,spend[i+d-1])
-            drop.remove(drop[0])
-            drop.append(spend[i+d-1])
+            history = spend[i:i+d]
+            history.sort()
 
+        #Use bisect module to drop and insert values at each iterations
+        else:
+            drop = bisect(history,spend[i-1])-1
+            del history[drop]
+            insort(history,spend[i+d-1])
+
+        # Cases for odd and even d values
         if d%2 == 0:
-            limit = sum(trail[int(d/2-1):int(d/2)+1])
+            median = sum(history[int(d/2-1):int(d/2)+1])/2
         else:
-            limit = 2*trail[int(d/2)]
-        if spend[i+d] >= limit:
+            median = history[int(d/2)]
+
+        # Add notification if a transaction goes above 2x the history median
+        if spend[i+d] >= 2*median:
             notifications+=1
+
     return notifications
-
-d = 3
-spend = [10,20,30,40,50]
-
-fraud(spend,d)
