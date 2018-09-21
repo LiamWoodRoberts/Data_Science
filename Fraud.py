@@ -1,9 +1,10 @@
-'''Basic fraud detecter from a hackerrank problem. Notifies user if spending goes above twice the 
-median of a specified previous numbers of days. Function takes in daily spending and number of days tracked
-and returns the number of notifications a user would recieve.'''
+'''A solution to Hackerrank's 'Fraudulent Activity Notifications' problem found at: 
+   https://www.hackerrank.com/challenges/fraudulent-activity-notifications/problem
+   Counts notifications a user would recieve when their spending goes above twice the median of a 
+   specified previous numbers of days. '''
 
 from bisect import insort
-
+from bisect import bisect
 def fraud(spend,d):
     notifications = 0
     for i in range(len(spend)-d):
